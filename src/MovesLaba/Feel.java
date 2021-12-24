@@ -3,16 +3,20 @@ import InterfacesLaba.*;
 import TypeClassesLaba.Name;
 
 public class Feel implements StandartMethods{
-	RandomCount rInd = new RandomCount();
+	
+	//РџРѕР»СЏ
+	protected RandomCount rInd = new RandomCount();
 	protected boolean BrokenNervous;
 	protected Name name;
-	String[] Emotions = {"Слишком неподходящее место для прятки...", "Он непременно приподымет скатерть!", "Я пропал...", "Я не могу найти ничего подходящего!!!"};
+	String[] Emotions = {"РЎР»РёС€РєРѕРј РЅРµРїРѕРґС…РѕРґСЏС‰РµРµ РјРµСЃС‚Рѕ РґР»СЏ РїСЂСЏС‚РєРё...", "РћРЅ РЅРµРїСЂРµРјРµРЅРЅРѕ РїСЂРёРїРѕРґС‹РјРµС‚ СЃРєР°С‚РµСЂС‚СЊ!", "РЇ РїСЂРѕРїР°Р»...", "РЇ РЅРµ РјРѕРіСѓ РЅР°Р№С‚Рё РЅРёС‡РµРіРѕ РїРѕРґС…РѕРґСЏС‰РµРіРѕ!!!"};
 	
+	//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
 	public Feel(boolean BrokenNervous) {
 		this.BrokenNervous = BrokenNervous;
 	}
 	public Feel() { }
-		
+	
+	//РњРµС‚РѕРґС‹, СЂРµР°Р»РёР·СѓСЋС‰РёРµ СЃР°РјРѕС‡СѓРІСЃС‚РІРёРµ РѕР±СЉРµРєС‚Р°
 	public boolean Hesitate(int HesitateLevel, Name name) {
 		this.name = name;
 		double index = rInd.GetRandomIndex(); 
@@ -30,6 +34,7 @@ public class Feel implements StandartMethods{
 		}
 	}
 	
+	//Р“РµС‚С‚РµСЂ, РЎРµС‚С‚РµСЂ
 	public boolean getNervous() {
 		return BrokenNervous;
 	}
@@ -37,15 +42,17 @@ public class Feel implements StandartMethods{
 		this.BrokenNervous = BrokenNervous;
 	}
 	
+	//РЎС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РјРµС‚РѕРґС‹
 	@Override
-	public boolean equals(StandartMethods smth) {
-		Feel feel = (Feel) smth;
-		if (BrokenNervous == feel.getNervous()) {
+	public boolean equals(Object obj) {
+		Feel feel = (Feel) obj;
+		if (this == obj) {
 			return true;
 		}
-		else {
+		if (obj == null || obj.getClass() != getClass()) {
 			return false;
 		}
+		return feel.toString().equals(feel.toString());
 	}
 	@Override
 	public int hashCode() {

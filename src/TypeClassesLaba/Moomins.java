@@ -1,9 +1,10 @@
-//Только создание объекта и изменение его полей
+//РўРѕР»СЊРєРѕ СЃРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° Рё РёР·РјРµРЅРµРЅРёРµ РµРіРѕ РїРѕР»РµР№
 package TypeClassesLaba;
 import MovesLaba.*;
 import InterfacesLaba.*;
 public class Moomins implements StandartMethods{
-	//Поля
+	
+	//РџРѕР»СЏ
 	protected Name name = new Name();
 	protected Place place = new Place();
 	protected HideAndSeek game = new HideAndSeek();
@@ -12,21 +13,22 @@ public class Moomins implements StandartMethods{
 	protected Eyesight eyesight = new Eyesight(true); 
 	protected Feel BrokenNervous = new Feel(false);
 	
-	//Конструкторы
+	//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
 	public Moomins(String name) {
 		this.name = new Name(name);
 	}
 	
-	//Стандартные методы
+	//РЎС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РјРµС‚РѕРґС‹
 	@Override
-	public boolean equals(StandartMethods smth) {
-		Moomins moomin = (Moomins) smth;
-		if (this.name.equals(moomin.name)) {
+	public boolean equals(Object obj) {
+		Moomins moomin = (Moomins) obj;
+		if (this.name == moomin.name) {
 			return true;
 		}
-		else {
+		if(obj == null || obj.getClass() != getClass()) {
 			return false;
 		}
+		return moomin.name.equals(this.name);
 	}
 	@Override
 	public int hashCode() {
@@ -36,50 +38,48 @@ public class Moomins implements StandartMethods{
 	}
 	@Override
 	public String toString() {
-		return "Имя: " + name.getName() + "\n" + "Место: " + place.getPlace() + "\n";
+		return "РРјСЏ: " + name.getName() + "\n" + "РњРµСЃС‚Рѕ: " + place.getPlace() + "\n";
 	}
-
-	
-	//Методы, реализующие движение
-	public String WalksTo(String place) {
-		this.place = move.WalksTo(place);
-		return name.getName() + " отошел в " + this.place.getPlace();
-	}
-	public String CloseEyes(String stuff) {
-		this.eyesight = move.CloseEyes();
-		return name.getName() + " закрыл лицо " + stuff;
-	}
-	public void OpenEyes() {
-		eyesight = move.OpenEyes();
-	}
-	public String Count(int count) {
-		return move.Count(count, name);
-	}
-	public String changePlace() {
-		return name.getName() + ": " + move.changePlace();
-	}
-	public String goBack() {
-		return name.getName() + ": " + move.goBack();
-	}
-	
-	//Прятки
-	public String TriesToFind(String name, String place) {
-		return game.TriesToFind(name, this.name.getName(), place);
-	}
-	public String Hide(String place) {
-		this.place = game.Hide(place);
-		return this.place.getPlace();
-	}
-	public void Hesitate(int HesitateLevel) {
-		BrokenNervous.setNervous(feel.Hesitate(HesitateLevel, name));
-	}
-	public String TriesToFindGoodPLace(String place) {
-		return game.TriesToFindGoodPlace(place, name);
-	}
-	
-	//Состояние души
-	public boolean getNervousCondition() {
-		return BrokenNervous.getNervous();
-	}
-	
+	//РњРµС‚РѕРґС‹, СЂРµР°Р»РёР·СѓСЋС‰РёРµ РґРІРёР¶РµРЅРёРµ
+		public String WalksTo(String place) {
+			this.place = move.WalksTo(place);
+			return name.getName() + " РѕС‚РѕС€РµР» РІ " + this.place.getPlace();
+		}
+		public String CloseEyes(String stuff) {
+			this.eyesight = move.CloseEyes();
+			return name.getName() + " Р·Р°РєСЂС‹Р» Р»РёС†Рѕ " + stuff;
+		}
+		public void OpenEyes() {
+			eyesight = move.OpenEyes();
+		}
+		public String Count(int count) {
+			return move.Count(count, name);
+		}
+		public String changePlace() {
+			return name.getName() + ": " + move.changePlace();
+		}
+		public String goBack() {
+			return name.getName() + ": " + move.goBack();
+		}
+		
+		//РџСЂСЏС‚РєРё
+		public String TriesToFind(String name, String place) {
+			return game.TriesToFind(name, this.name.getName(), place);
+		}
+		public String Hide(String place) {
+			this.place = game.Hide(place);
+			return this.place.getPlace();
+		}
+		public void Hesitate(int HesitateLevel) {
+			BrokenNervous.setNervous(feel.Hesitate(HesitateLevel, name));
+		}
+		public String TriesToFindGoodPLace(String place) {
+			return game.TriesToFindGoodPlace(place, name);
+		}
+		
+		//РЎРѕСЃС‚РѕСЏРЅРёРµ РґСѓС€Рё
+		public boolean getNervousCondition() {
+			return BrokenNervous.getNervous();
+		}
+		
 }

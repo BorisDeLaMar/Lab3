@@ -1,14 +1,18 @@
 package TypeClassesLaba;
 import InterfacesLaba.*;
-//import TypeClassesLaba.*;
+
 public class Eyesight implements StandartMethods{
+	
+	//Поля
 	boolean eyesight;
 	
+	//Конструкторы
 	public Eyesight(boolean eyesight) {
 		this.eyesight = eyesight;
 	}
 	public Eyesight() {}
 	
+	//Геттер, сеттер
 	public boolean getEyesight() {
 		return eyesight;
 	}
@@ -16,16 +20,20 @@ public class Eyesight implements StandartMethods{
 		this.eyesight = eyesight;
 	}
 	
+	//Стандартные функции
 	@Override
-	public boolean equals(StandartMethods smth) {
-		Eyesight eyesight = (Eyesight) smth;
-		if (this.eyesight == eyesight.getEyesight()) {
+	public boolean equals(Object obj) {
+		Eyesight smth = (Eyesight) obj;
+		Eyesight eyesight = new Eyesight(this.eyesight);
+		if (this == obj) {
 			return true;
 		}
-		else {
+		if (obj == null || obj.getClass() != getClass()) {
 			return false;
 		}
+		return eyesight.toString().equals(smth.toString());
 	}
+	
 	@Override
 	public int hashCode() {
 		Eyesight eyesight = new Eyesight(this.eyesight);

@@ -3,13 +3,13 @@ package TypeClassesLaba;
 import MovesLaba.RandomCount;
 import InterfacesLaba.*;
 public enum Today implements ConvertToString{
-	MONDAY("Понедельник-день-бездельник"),
-	TUESDAY("Вторник-повторник"),
-	WEDNESDAY("Среда-тамада"),
-	THURSDAY("Четверг-я заботы все отверг"),
-	FRIDAY("Пятница-пьяница"),
-	SATURDAY("Суббота-безработа"),
-	SUNDAY("Воскресенье-день веселья");
+	MONDAY("РџРѕРЅРµРґРµР»СЊРЅРёРє-РґРµРЅСЊ-Р±РµР·РґРµР»СЊРЅРёРє"),
+	TUESDAY("Р’С‚РѕСЂРЅРёРє-РїРѕРІС‚РѕСЂРЅРёРє"),
+	WEDNESDAY("РЎСЂРµРґР°-С‚Р°РјР°РґР°"),
+	THURSDAY("Р§РµС‚РІРµСЂРі-СЏ Р·Р°Р±РѕС‚С‹ РІСЃРµ РѕС‚РІРµСЂРі"),
+	FRIDAY("РџСЏС‚РЅРёС†Р°-РїСЊСЏРЅРёС†Р°"),
+	SATURDAY("РЎСѓР±Р±РѕС‚Р°-Р±РµР·СЂР°Р±РѕС‚Р°"),
+	SUNDAY("Р’РѕСЃРєСЂРµСЃРµРЅСЊРµ-РґРµРЅСЊ РІРµСЃРµР»СЊСЏ");
 	
 	private String title;
 	Today(String title){

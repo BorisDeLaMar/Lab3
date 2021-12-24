@@ -1,25 +1,33 @@
 import TypeClassesLaba.*;
+
 public class TheGistLaba {
 	public static void main(String[] args) {
+		
 		System.out.println(Today.shortInfo());
-		Moomins sniff = new Moomins("Снифф");
-		Moomins moomintroll = new Moomins("Мумми-тролль");
-		System.out.println(sniff.WalksTo("угол"));
-		System.out.println(sniff.CloseEyes("лапами"));
+		
+		Moomins sniff = new Moomins("РЎРЅРёС„С„");
+		Moomins moomintroll = new Moomins("РњСѓРјРјРё-С‚СЂРѕР»Р»СЊ");
+		
+		System.out.println(sniff.WalksTo("СѓРіРѕР»"));
+		System.out.println(sniff.CloseEyes("Р»Р°РїР°РјРё"));
+		
 		for(int c = 1; c <= 10; c++) {
 			System.out.println(sniff.Count(c));
 			if (c == 3) {
-				moomintroll.Hide("Под столом на веранде");
+				moomintroll.Hide("РџРѕРґ СЃС‚РѕР»РѕРј РЅР° РІРµСЂР°РЅРґРµ");
 			}
 			if ((c >= 3) &&  (moomintroll.getNervousCondition() == false)) {
 				moomintroll.Hesitate(c);
 			}
 			if (moomintroll.getNervousCondition()) {
-				System.out.println(moomintroll.TriesToFindGoodPLace("Цилиндр в углу веранды"));
+				System.out.println(moomintroll.TriesToFindGoodPLace("Р¦РёР»РёРЅРґСЂ РІ СѓРіР»Сѓ РІРµСЂР°РЅРґС‹"));
 			}
 		}
+		
 		sniff.OpenEyes();
-		System.out.println(sniff.TriesToFind("Мумми-тролль", "Под столом на веранде"));
+		
+		System.out.println(sniff.TriesToFind("РњСѓРјРјРё-С‚СЂРѕР»Р»СЊ", "РџРѕРґ СЃС‚РѕР»РѕРј РЅР° РІРµСЂР°РЅРґРµ"));
+		System.out.println(sniff.TriesToFind("РњСѓРјРјРё-С‚СЂРѕР»Р»СЊ", "РџРѕРґ СЃС‚РѕР»РѕРј РЅР° РІРµСЂР°РЅРґРµ"));
 		//System.out.println(sniff.changePlace());
 		//System.out.println(sniff.goBack());
 	}

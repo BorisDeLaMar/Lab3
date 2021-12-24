@@ -1,12 +1,18 @@
 package TypeClassesLaba;
 import InterfacesLaba.*;
+
 public class Name implements StandartMethods{
+
+	//Поля
 	protected String name;
 	
+	//Конструкторы
 	public Name(String name) {
 		this.name = name;
 	}
 	public Name() {}
+	
+	//Геттер, Сеттер
 	public String getName() {
 		return name;
 	}
@@ -14,15 +20,17 @@ public class Name implements StandartMethods{
 		this.name = name;
 	}
 	
+	//Стандартные функции
 	@Override
-	public boolean equals(StandartMethods smth) {
-		Name name = (Name) smth;
-		if (this.name == name.getName()) {
+	public boolean equals(Object obj) {
+		Name name = (Name) obj;
+		if (name == obj) {
 			return true;
 		}
-		else {
+		if (obj == null || obj.getClass() == getClass()) {
 			return false;
 		}
+		return this.getName().equals(name.getName());
 	}
 	@Override
 	public int hashCode() {

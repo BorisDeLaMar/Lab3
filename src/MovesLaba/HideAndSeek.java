@@ -3,32 +3,36 @@ import TypeClassesLaba.*;
 import java.util.ArrayList;
 
 public class HideAndSeek {
+	
+	//РџРѕР»СЏ
 	protected Place placeHider = new Place();
 	protected Name nameFinder = new Name();
 	protected Name nameHider = new Name();
 	protected ArrayList<String> UsualPlaces = new ArrayList<String>();
 	{
-	UsualPlaces.add("За диваном в гостинной");
-	UsualPlaces.add("В шкафу в спальне");
-	UsualPlaces.add("Под кроватью в спальне");
+	UsualPlaces.add("Р—Р° РґРёРІР°РЅРѕРј РІ РіРѕСЃС‚РёРЅРЅРѕР№");
+	UsualPlaces.add("Р’ С€РєР°С„Сѓ РІ СЃРїР°Р»СЊРЅРµ");
+	UsualPlaces.add("РџРѕРґ РєСЂРѕРІР°С‚СЊСЋ РІ СЃРїР°Р»СЊРЅРµ");
 	}
 	protected ArrayList<String> UnusualPlaces = new ArrayList<String>();
 	{
-	UnusualPlaces.add("На люстре в коридоре");
-	UnusualPlaces.add("За занавеской в спальне"); 
-	UnusualPlaces.add("Под столом на кухне");
+	UnusualPlaces.add("РќР° Р»СЋСЃС‚СЂРµ РІ РєРѕСЂРёРґРѕСЂРµ");
+	UnusualPlaces.add("Р—Р° Р·Р°РЅР°РІРµСЃРєРѕР№ РІ СЃРїР°Р»СЊРЅРµ"); 
+	UnusualPlaces.add("РџРѕРґ СЃС‚РѕР»РѕРј РЅР° РєСѓС…РЅРµ");
 	}
+	
+	//РњРµС‚РѕРґС‹, СЂРµР°Р»РёР·СѓСЋС‰РёРµ РёРіСЂСѓ РІ РїСЂСЏС‚РєРё
 	public String TriesToFind(String name, String nameFinder, String place) {
 		this.nameFinder.setName(nameFinder);
 		nameHider.setName(name);
 		placeHider.setPlace(place);
 		for(int i = 0; i < UsualPlaces.size(); i++) {
 			if (UsualPlaces.get(i) == placeHider.getPlace()) {
-				return this.nameFinder.getName() + ":" + " Нашелся " + nameHider.getName() + "!";
+				return this.nameFinder.getName() + ":" + " РќР°С€РµР»СЃСЏ " + nameHider.getName() + "!";
 			}
 			if (i == UsualPlaces.size() - 1) {
 				UsualPlaces.add(placeHider.getPlace());
-				return this.nameFinder.getName() + ":" + " Ну ты даешь " + nameHider.getName() + "!";
+				return this.nameFinder.getName() + ":" + " РќСѓ С‚С‹ РґР°РµС€СЊ " + nameHider.getName() + "!" + " РЇ С‚РµР±СЏ Р·РґРµСЃСЊ (" + placeHider.getPlace() + ") РЅРёРєРѕРіРґР° Р±С‹ РЅРµ РЅР°С€РµР»!";
 			}
 		}
 		return "";
@@ -36,11 +40,11 @@ public class HideAndSeek {
 	public String TriesToFindGoodPlace(String place, Name name) {
 		for(int i = 0; i < UnusualPlaces.size(); i++) {
 			if (UnusualPlaces.get(i) == place) {
-				return name.getName() + ":" + " Надо бы перепрятаться. " + place + " всяко понадежнее" + "!";
+				return name.getName() + ":" + " РќР°РґРѕ Р±С‹ РїРµСЂРµРїСЂСЏС‚Р°С‚СЊСЃСЏ. " + place + " РІСЃСЏРєРѕ РїРѕРЅР°РґРµР¶РЅРµРµ" + "!";
 			}
 			if (i == UnusualPlaces.size() - 1) {
 				UnusualPlaces.add(place); 
-				return name.getName() + ":" + " " + place + " как вариант";
+				return name.getName() + ":" + " " + place + " РєР°Рє РІР°СЂРёР°РЅС‚";
 			}
 		}
 		return "";

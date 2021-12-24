@@ -2,12 +2,17 @@ package TypeClassesLaba;
 import InterfacesLaba.*;
 
 public class Place implements StandartMethods{
+	
+	//Поля
 	protected String place;
 	
+	//Конструкторы
 	public Place(String place) {
 		this.place = place;
 	}
 	public Place() {}
+	
+	//Геттер, Сеттер
 	public String getPlace() {
 		return place;
 	}
@@ -15,15 +20,17 @@ public class Place implements StandartMethods{
 		this.place = place;
 	}
 	
+	//Стандартные методы
 	@Override
-	public boolean equals(StandartMethods smth) {
-		Place place = (Place) smth;
-		if (this.place == place.getPlace()) {
+	public boolean equals(Object obj) {
+		Place place = (Place) obj;
+		if (this == obj) {
 			return true;
 		}
-		else {
+		if (obj == null || obj.getClass() != getClass()) {
 			return false;
 		}
+		return place.getPlace().equals(this.getPlace());
 	}
 	@Override
 	public int hashCode() {
